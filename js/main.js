@@ -150,6 +150,7 @@ const setPosts = {
             like: 0,
             comments: 0
         })
+        console.log(this.allPosts)
 
         if (handler) {
             handler()
@@ -295,10 +296,9 @@ const init = () => {
             return
         }
 
-        setPosts.addPost(title.value, text.value, tags.value, showAddPost)
+        setPosts.addPost(title.value, text.value, tags.value, showAllPosts)
         
         addPostElement.classList.remove('visible')
-        postsWrapper.classList.add('visible')
         addPostElement.reset()
     })
 
