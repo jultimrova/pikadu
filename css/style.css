@@ -9,7 +9,7 @@ body {
   background: #142090;
   padding-top: 16px;
   padding-bottom: 16px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   margin-bottom: 30px;
 }
 .header-wrapper {
@@ -95,7 +95,11 @@ body {
   justify-content: space-between;
 }
 .posts {
+  display: none;
   width: 67%;
+}
+.posts.visible {
+  display: block;
 }
 .post {
   background-color: #fff;
@@ -103,10 +107,7 @@ body {
   margin-bottom: 30px;
 }
 .post-body {
-  padding-top: 35px;
-  padding-left: 35px;
-  padding-right: 35px;
-  padding-bottom: 0;
+  padding: 35px 35px 0;
 }
 .post-title {
   margin-top: 0;
@@ -128,18 +129,18 @@ body {
   color: #bfbfbf;
   font-size: 14px;
   line-height: 22px;
-  margin-right: 10px;
+  margin-left: 10px;
   text-decoration: none;
+}
+.tag:first-child {
+  margin-left: 0;
 }
 .post-footer {
   border-top: 1px solid #e8e8e8;
   background: #fafafa;
   display: flex;
   justify-content: space-between;
-  padding-left: 35px;
-  padding-right: 35px;
-  padding-top: 13px;
-  padding-bottom: 13px;
+  padding: 13px 35px;
 }
 .post-buttons {
   display: flex;
@@ -349,10 +350,10 @@ body {
 }
 .sidebar-menu-link.active {
   background-color: #fffbe6;
-  border-right: 3px solid #faad14;
+  border-right: 3px solid royalblue;
 }
 .button {
-  background: #faad14;
+  background: royalblue;
   border-radius: 4px;
   border: none;
   text-decoration: none;
@@ -365,9 +366,9 @@ body {
 }
 .button-outline {
   background: #ffffff;
-  border: 1px solid #ffc53d;
+  border: 1px solid royalblue;
   border-radius: 4px;
-  color: #ffc53d;
+  color: royalblue;
   padding-left: 16px;
   padding-right: 16px;
   cursor: pointer;
@@ -375,7 +376,7 @@ body {
 .button-outline .icon {
   width: 14px;
   height: 11px;
-  fill: #ffc53d;
+  fill: #147899;
 }
 .button-new-post {
   display: none;
@@ -383,6 +384,9 @@ body {
   justify-content: center;
   width: 100%;
   margin-top: 20px;
+}
+.button-new-post.visible {
+  display: flex;
 }
 .icon-fire {
   fill: #fff;
@@ -416,7 +420,7 @@ body {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: #d48806;
+  color: darkslateblue;
 }
 .card-text {
   font-size: 14px;
@@ -451,15 +455,21 @@ body {
   color: #ffffff;
 }
 .add-post {
-  display: flex;
+  display: none;
   flex-direction: column;
+  width: 67%;
+}
+.add-post.visible {
+  display: flex;
 }
 .add-title,
-.add-text {
+.add-text,
+.add-tags {
   background: #ffffff;
   border: 1px solid #e8e8e8;
   padding: 23px 30px;
   margin-bottom: 16px;
+  resize: none;
 }
 .add-text {
   min-height: 362px;
@@ -552,6 +562,7 @@ body {
   .author-avatar {
     margin-left: 0;
     margin-right: 10px;
+    object-fit: cover;
   }
   .author-about {
     order: 2;
